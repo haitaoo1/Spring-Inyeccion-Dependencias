@@ -14,7 +14,7 @@ public class ProductRepository {
             new Product(1L, "Memoria corsair 32", 300L),
             new Product(2L, "Cpu Intel Core i9", 800L),
             new Product(3L, "Motherboard Gigabyte", 200L),
-            new Product(3L, "Raton Razer", 80L));
+            new Product(4L, "Raton Razer", 80L));
     }
     
     public List <Product> findAll(){

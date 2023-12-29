@@ -1,6 +1,6 @@
 package com.haitao.springboot.id.app.springbootid.models;
 
-public class Product {
+public class Product implements Cloneable {
     
     private Long id;
     private String name;
@@ -32,6 +32,15 @@ public class Product {
     }
     public void setPrice(Long price) {
         this.price = price;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            return new Product(id,name,price);
+        }
     }
     
     
