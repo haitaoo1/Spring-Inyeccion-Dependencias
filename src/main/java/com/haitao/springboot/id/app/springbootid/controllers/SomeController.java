@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.haitao.springboot.id.app.springbootid.models.Product;
+import com.haitao.springboot.id.app.springbootid.services.ProductService;
 import com.haitao.springboot.id.app.springbootid.services.ProductServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class SomeController {
     //problemas de mutabilidad. (cada request es compartido )
 
     @Autowired
-    private ProductServiceImpl service;
+    private ProductService service;
 
     @GetMapping
     public List<Product> list(){

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.haitao.springboot.id.app.springbootid.models.Product;
 
 @Component
-public class ProductRepositoryImpl implements ProductoRepository{
+public class ProductRepositoryImpl implements ProductRepository{
 
     List<Product> data;
 

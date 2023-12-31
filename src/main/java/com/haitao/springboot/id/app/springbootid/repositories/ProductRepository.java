@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.haitao.springboot.id.app.springbootid.models.Product;
 
-public interface ProductoRepository  {
+public interface ProductRepository  {
     List<Product> findAll();
 
     Product findById(Long id);

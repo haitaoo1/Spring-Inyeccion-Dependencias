@@ -9,12 +9,13 @@ import org.springframework.stereotype.Component;
 
 import com.haitao.springboot.id.app.springbootid.models.Product;
 import com.haitao.springboot.id.app.springbootid.repositories.ProductRepositoryImpl;
+import com.haitao.springboot.id.app.springbootid.repositories.ProductRepository;
 
 @Component
 public class ProductServiceImpl implements ProductService {
     //en vez de llamar a la instancia, el contenedor nos pasa una instancia guardada del contenedor
     @Autowired
-    private ProductRepositoryImpl repository;
+    private ProductRepository repository;
     // private ProductRepositoryImpl repository = new ProductRepositoryImpl();
     @Override
     public List<Product> findAll(){
