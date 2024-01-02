@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.haitao.springboot.id.app.springbootid.models.Product;
@@ -12,7 +14,13 @@ import com.haitao.springboot.id.app.springbootid.repositories.ProductRepository;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-    //en vez de llamar a la instancia, el contenedor nos pasa una instancia guardada del contenedor
+ 
+    @Autowired
+    private Environment environment;
+
+    @Value("${config.price.tax}")
+    private Double tax;
+
     //@Autowired
     private ProductRepository repository;
     // private ProductRepositoryImpl repository = new ProductRepositoryImpl();
@@ -30,7 +38,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAll(){
         return repository.findAll().stream().map(p -> {
-            Double priceTax = p.getPrice() * 1.25d;
+            Double priceTax = p.getPrice() * tax;
+            // Double priceTax = p.getPrice() * environment.getProperty("config.price.tax", Double.class);
            // Product newProd = new Product(p.getId(), p.getName(), priceImp.longValue());
            // return newProd;
             Product newProduct = (Product) p.clone();
