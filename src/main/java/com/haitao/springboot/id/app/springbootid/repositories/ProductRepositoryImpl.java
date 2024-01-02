@@ -3,11 +3,12 @@ package com.haitao.springboot.id.app.springbootid.repositories;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
 
 import com.haitao.springboot.id.app.springbootid.models.Product;
 
-@Component
+@Repository("productList")
 public class ProductRepositoryImpl implements ProductRepository{
 
     List<Product> data;

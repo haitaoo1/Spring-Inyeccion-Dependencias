@@ -1,22 +1,32 @@
 package com.haitao.springboot.id.app.springbootid.services;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import com.haitao.springboot.id.app.springbootid.models.Product;
-import com.haitao.springboot.id.app.springbootid.repositories.ProductRepositoryImpl;
 import com.haitao.springboot.id.app.springbootid.repositories.ProductRepository;
 
-@Component
+@Service
 public class ProductServiceImpl implements ProductService {
     //en vez de llamar a la instancia, el contenedor nos pasa una instancia guardada del contenedor
-    @Autowired
+    //@Autowired
     private ProductRepository repository;
     // private ProductRepositoryImpl repository = new ProductRepositoryImpl();
+    
+    public ProductServiceImpl(@Qualifier("productList")ProductRepository repository) {
+        this.repository = repository;
+    }
+
+    //metodo setter
+    // @Autowired
+    // public void setRepository(ProductoRepository repository) {
+    //     this.repository = repository;
+    // }
+
     @Override
     public List<Product> findAll(){
         return repository.findAll().stream().map(p -> {
