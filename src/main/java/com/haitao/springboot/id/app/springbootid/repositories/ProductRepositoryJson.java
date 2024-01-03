@@ -24,12 +24,8 @@ public class ProductRepositoryJson implements ProductRepository{
         ObjectMapper objectMapper = new ObjectMapper();
         //Lee el json y convierte el resource en un archivo
         // y lo ponemos en un array y convertimos en list
-        try {
+        try {                                           //sirve  con .getInputStream()
             list = Arrays.asList(objectMapper.readValue(resource.getFile(),Product[].class));
-        } catch (StreamReadException e) {
-            e.printStackTrace();
-        } catch (DatabindException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
