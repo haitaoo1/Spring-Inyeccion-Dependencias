@@ -37,7 +37,7 @@ public class ProductRepositoryJson implements ProductRepository{
 
     @Override
     public List<Product> findAll() {
-        return null;
+        return list;
     }
 
     @Override

@@ -7,7 +7,8 @@ import java.util.List;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 import com.haitao.springboot.id.app.springbootid.models.Product;
-@Primary
+
+// @Primary
 @Repository("productFoo")
 public class ProductRepositoryFoo implements ProductRepository {
 
