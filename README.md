@@ -5,3 +5,11 @@
 <h4>@Repository</h4>
 <h4>@Service</h4>
 <h4>@Controller</h4>
+
+<h3>@Bean</h3>
+<h3>@Primary</h3>
+<h3>@Qualifer</h3>
+
+
+
+
